@@ -7,6 +7,7 @@ public class Automobile extends Vehicle {
 	}
 	public Automobile (String make, String model, Integer year,
 			byte numOfPass, byte numberOfDoors) {
+		super();
 		this.setMake(make);
 		this.setModel(model);
 		this.setYear(year);
@@ -25,8 +26,8 @@ public class Automobile extends Vehicle {
 	}
 	@Override
 	public String toString() {
-		return super.getYear() + " " + super.getMake() + " " + super.getModel() + " " + numberOfDoors + " door "
-				+ "seats " + super.getNumberOfPassengers() + " people";
+		return this.getYear() + " " + this.getMake() + " " + this.getModel() + " " + numberOfDoors + " door "
+				+ "seats " + this.getNumberOfPassengers() + " people";
 	}
 	
 @Override
@@ -54,8 +55,15 @@ public class Automobile extends Vehicle {
 		double tax = ((.02*getNumberOfPassengers())/(Math.pow(1+2015-getYear(), 1.25)))*(numberOfDoors*100);
 		return tax;
 	}
+
 	@Override
 	public int compareTo(Object obj) {
-		return 0;
+		Vehicle otherVehicle = (Vehicle) obj;
+		if(this.getYear() > otherVehicle.getYear())
+			return 1;
+		else if(this.getYear() < otherVehicle.getYear())
+			return -1;
+		else
+			return 0;
 	}
 }
