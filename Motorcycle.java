@@ -40,21 +40,21 @@ public class Motorcycle extends Vehicle{
 		
 		return tax;
 	}
-//	@Override
-//	public String toString() {
-//		return getYear() + " " + getMake() + " " + getModel() + " " 
-//				+ bikeType;
-//	}
 	
 	@Override
 	public String toString() {
-		return super.getYear() + " " + super.getMake() + " " + super.getModel()
+		return this.getYear() + " " + this.getMake() + " " + this.getModel()
 				+ " " + this.bikeType.toString();
 	}
 	@Override
 	public int compareTo(Object obj) {
-		// TODO Auto-generated method stub
-		return 0;
+		Vehicle otherVehicle = (Vehicle) obj;
+		if(this.getYear() > otherVehicle.getYear())
+			return 1;
+		else if(this.getYear() < otherVehicle.getYear())
+			return -1;
+		else
+			return 0;
 	}
 	
 }
