@@ -1,10 +1,21 @@
 
 public class Motorcycle extends Vehicle{
 	private BikeType bikeType;
-	
+	/**
+	 * Default constructor that assigns the <br>
+	 * motorcycle to a 2015 Ducati 1299 Panigale Super bike.
+	 */
 	public Motorcycle() {
 		this("Ducati", "1299 Panigale", 2015, BikeType.SUPER);
 	}
+	/**
+	 * Overloading constructor that sets the make, model, <br>
+	 * year, and bike type.
+	 * @param make
+	 * @param model
+	 * @param year
+	 * @param bikeType
+	 */
 	public Motorcycle(String make, String model, int year, 
 			BikeType bikeType) {
 		super();
@@ -13,16 +24,32 @@ public class Motorcycle extends Vehicle{
 		super.setYear(year);
 		this.setBikeType(bikeType);
 	}
+	/**
+	 * Copy constructor 
+	 * @param otherBike
+	 */
 	public Motorcycle(Motorcycle otherBike) {
 		this(otherBike.getMake(), otherBike.getModel(), otherBike.getYear(),
 				otherBike.getBikeType());
 	}
+	/**
+	 * 
+	 * @return bikeType of the Motorcycle
+	 */
 	public BikeType getBikeType() {
 		return bikeType;
 	}
+	/**
+	 * Sets the bikeType of a Motorcycle object
+	 * @param bikeType
+	 */
 	public void setBikeType(BikeType bikeType) {
 		this.bikeType = bikeType;
 	}
+	/**
+	 * Calculates the taxes of a Motorcycle <br>
+	 * based on the type of bike that it is.
+	 */
 	@Override
 	public double calculateMichaelTax() {
 		double taxRate=0;
@@ -40,12 +67,18 @@ public class Motorcycle extends Vehicle{
 		
 		return tax;
 	}
-	
+	/**
+	 * @return String representation of the Motorcycle object
+	 */
 	@Override
 	public String toString() {
 		return this.getYear() + " " + this.getMake() + " " + this.getModel()
 				+ " " + this.bikeType.toString();
 	}
+	/**
+	 * Compares the objects based on the year
+	 * @return 1, 0, -1
+	 */
 	@Override
 	public int compareTo(Object obj) {
 		Vehicle otherVehicle = (Vehicle) obj;
