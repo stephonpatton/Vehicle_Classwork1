@@ -102,9 +102,9 @@ public class Automobile extends Vehicle {
 	public int compareTo(Object obj) {
 		Vehicle otherVehicle = (Vehicle) obj;
 		if(this.getYear() > otherVehicle.getYear())
-			return 1;
-		else if(this.getYear() < otherVehicle.getYear())
 			return -1;
+		else if(this.getYear() < otherVehicle.getYear())
+			return 1;
 		else
 			return 0;
 	}
